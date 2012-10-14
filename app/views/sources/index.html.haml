@@ -1,0 +1,17 @@
+= title "All Sources"
+
+%h1 Sources
+%table
+	%thead
+		%tr
+			%td ID
+			%td Name
+			%td Bio
+			%td Quotes
+	%tbody
+		- @sources.each do |source|
+			%tr
+				%td= source.id
+				%td= source.full_name
+				%td= source.bio
+				%td= source.quotes.count

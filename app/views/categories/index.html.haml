@@ -1,0 +1,15 @@
+= title "All Categories"
+%h1 Categories
+
+%table
+	%thead
+		%tr
+			%td ID
+			%td Name
+			%td Quotes
+	%tbody
+		- @categories.each do |cat|
+			%tr
+				%td= cat.id
+				%td= cat.name
+				%td= cat.quotes.count

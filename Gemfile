@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 gem 'rails', '3.2.8'
-gem 'sqlite3'
 
 gem 'jquery-rails'
 gem 'haml-rails'
@@ -11,7 +10,12 @@ gem 'sorted'
 gem 'micro_auth'
 gem 'simple_form'
 
+group :production do
+	gem 'pg'
+end
+
 group :development, :test do
+	gem 'sqlite3'
 	gem 'minitest-rails'
 	gem 'turn'
 	gem 'fabrication'

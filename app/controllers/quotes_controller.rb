@@ -1,6 +1,6 @@
 class QuotesController < ApplicationController
 	def index
-		@quotes = Quote.search(params[:search]).page(params[:page]).per(50)
+		@quotes = Quote.joins(:source,:category).search(params[:search]).sorted(params[:sort], "official_name ASC").page(params[:page])
 	end
 
 	def show

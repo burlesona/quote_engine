@@ -9,8 +9,8 @@ class Quote < ActiveRecord::Base
   # Validations
   validates_presence_of :content, :source, :category
 
-  # Default order
-  # default_scope order('created_at DESC')
+  # Pagination
+  paginates_per 50
 
   def to_s
   	content

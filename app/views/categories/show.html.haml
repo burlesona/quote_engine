@@ -7,10 +7,11 @@
 		%tr
 			%th Quote
 			%th Context
-			%th Source
+			%th= link_to_sorted 'Source', :official_name
 	%tbody
-		- @category.quotes.each do |quote|
-			%tr
-				%td= quote.content
-				%td= quote.context
-				%td= link_to quote.source, quote.source
+		- if @quotes
+			- @quotes.each do |quote|
+				%tr
+					%td= quote.content
+					%td= quote.context
+					%td= link_to quote.source, quote.source

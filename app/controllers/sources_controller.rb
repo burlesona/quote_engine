@@ -5,6 +5,7 @@ class SourcesController < ApplicationController
 
   def show
   	@source = Source.find(params[:id])
+    @quotes = @source.quotes.joins(:category).sorted(params[:sort], "name ASC").page(params[:page])
   end
 
   def new

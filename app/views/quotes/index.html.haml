@@ -14,14 +14,14 @@
 		%tr
 			%th Quote
 			%th Context
-			%th By
-			%th Category
+			%th= link_to_sorted "By", :official_name
+			%th= link_to_sorted "Category", :name
 	%tbody
 		- @quotes.each do |quote|
 			%tr
 				%td= quote.content
 				%td= quote.context
 				%td= link_to quote.source, quote.source
-				%td= link_to quote.category, quote.source
+				%td= link_to quote.category, quote.category
 
 = paginate @quotes

@@ -7,6 +7,7 @@ gem 'haml-rails'
 gem 'jetpack-rails', :path =>"~/code/jetpack-rails"
 
 gem 'kaminari'
+gem 'sorted'
 
 group :development, :test do
 	gem 'minitest-rails'

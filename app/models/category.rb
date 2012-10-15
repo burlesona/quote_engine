@@ -8,6 +8,9 @@ class Category < ActiveRecord::Base
   # Validations
   validates_uniqueness_of :name
 
+  # Pagination
+  paginates_per 50
+
   def to_s
   	name
   end

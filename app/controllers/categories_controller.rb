@@ -5,6 +5,7 @@ class CategoriesController < ApplicationController
 
   def show
   	@category = Category.find(params[:id])
+    @quotes = @category.quotes.joins(:source).sorted(params[:sort], "official_name ASC").page(params[:page])
   end
 
   def new

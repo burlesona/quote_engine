@@ -8,10 +8,11 @@
 		%tr
 			%th Quote
 			%th Context
-			%th Category
+			%th= link_to_sorted "Category", :name
 	%tbody
-		- @source.quotes.each do |quote|
-			%tr
-				%td= quote.content
-				%td= quote.context
-				%td= link_to quote.category, quote.category
+		- if @quotes
+			- @quotes.each do |quote|
+				%tr
+					%td= quote.content
+					%td= quote.context
+					%td= link_to quote.category, quote.category

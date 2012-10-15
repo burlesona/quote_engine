@@ -1,26 +1,17 @@
-= title "All Quotes"
-%h1 Quotes
+= title quotes_title(@source, @category)
+%h1= quotes_title(@source, @category)
+
 %table
 	%thead
 		%tr
-			%td ID
 			%td Quote
 			%td Context
-			%td Title
-			%td First Name
-			%td Middle Name
-			%td Official Name
-			%td Bio
+			%td By
 			%td Category
 	%tbody
 		- @quotes.each do |quote|
 			%tr
-				%td= quote.id
 				%td= quote.content
 				%td= quote.context
-				%td= quote.source.title
-				%td= quote.source.first_name
-				%td= quote.source.middle_name
-				%td= quote.source.official_name
-				%td= quote.source.bio
-				%td= quote.category
+				%td= link_to quote.source, quote.source
+				%td= link_to quote.category, quote.source

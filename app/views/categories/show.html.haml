@@ -1,2 +1,16 @@
-%h1 Categories#show
-%p Find me in app/views/categories/show.html.haml
+= title @category.to_s
+%h1
+	= @category.name
+	%small= pluralize( @category.quotes.count, 'quotes' )
+%table
+	%thead
+		%tr
+			%td Quote
+			%td Context
+			%td Source
+	%tbody
+		- @category.quotes.each do |quote|
+			%tr
+				%td= quote.content
+				%td= quote.context
+				%td= link_to quote.source, quote.source

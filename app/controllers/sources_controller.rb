@@ -4,6 +4,7 @@ class SourcesController < ApplicationController
   end
 
   def show
+  	@source = Source.find(params[:id])
   end
 
   def new

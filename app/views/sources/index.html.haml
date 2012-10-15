@@ -14,4 +14,4 @@
 				%td= source.id
 				%td= source.full_name
 				%td= source.bio
-				%td= source.quotes.count
+				%td= link_to source.quotes.count, source_quotes_path(source)

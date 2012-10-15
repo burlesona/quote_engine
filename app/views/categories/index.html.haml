@@ -12,4 +12,4 @@
 			%tr
 				%td= cat.id
 				%td= cat.name
-				%td= cat.quotes.count
+				%td= link_to cat.quotes.count, category_quotes_path(cat)

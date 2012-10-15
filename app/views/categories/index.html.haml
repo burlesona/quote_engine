@@ -4,12 +4,10 @@
 %table
 	%thead
 		%tr
-			%td ID
-			%td Name
-			%td Quotes
+			%th Name
+			%th Quotes
 	%tbody
 		- @categories.each do |cat|
 			%tr
-				%td= cat.id
 				%td= cat.name
 				%td= link_to cat.quotes.count, category_quotes_path(cat)

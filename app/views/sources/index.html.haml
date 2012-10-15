@@ -4,14 +4,12 @@
 %table
 	%thead
 		%tr
-			%td ID
-			%td Name
-			%td Bio
-			%td Quotes
+			%th Name
+			%th Bio
+			%th Quotes
 	%tbody
 		- @sources.each do |source|
 			%tr
-				%td= source.id
 				%td= source.full_name
 				%td= source.bio
 				%td= link_to source.quotes.count, source_quotes_path(source)

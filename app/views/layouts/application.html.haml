@@ -6,13 +6,16 @@
 			Quote Engine
 		= stylesheet_link_tag    "application", :media => "all"
 		= javascript_include_tag "application"
-		= csrf_meta_tags
+		= javascript_include_tag "//use.typekit.net/uyz6wtj.js"
+		:javascript
+			try{Typekit.load();}catch(e){}
+		= csrf_meta_tags			
 	%body
-		%nav
+		%nav#primary
 			%h1 Menu
 			%ul
 				%li= link_to "Home", root_path
 				%li= link_to "Quotes", quotes_path
 				%li= link_to "Sources", sources_path
 				%li= link_to "Categories", categories_path
-		= yield
+		%section#main= yield

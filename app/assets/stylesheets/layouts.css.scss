@@ -1,0 +1,6 @@
+nav#primary {
+	@include container; margin-top: $baseline;
+	h1 { @include heading(6); float: left; margin-right: $baseline / 2; }
+	ul li { float: left; margin-right: $baseline / 2; }
+}
+section#main { @include container; }

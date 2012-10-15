@@ -3,7 +3,7 @@ gem 'rails', '3.2.8'
 
 gem 'jquery-rails'
 gem 'haml-rails'
-gem 'jetpack-rails', :path =>"~/code/jetpack-rails"
+gem 'jetpack-rails'
 
 gem 'kaminari'
 gem 'sorted'

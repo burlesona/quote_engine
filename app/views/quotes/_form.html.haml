@@ -1,0 +1,12 @@
+= simple_form_for @quote, :html => { :class => 'stacked' } do |f|
+	.input
+		= f.association :source, :label_method => :full_name, :wrapper => false
+		= link_to "Add a Source", new_source_path
+
+	.input
+		= f.association :category, :wrapper => false
+		= link_to "Add a Category"
+
+	= f.input :content
+	= f.input :context
+	= f.submit

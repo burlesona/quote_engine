@@ -1,0 +1,7 @@
+= simple_form_for @source, :html => {:class=>'standard'} do |f|
+	= f.input :official_name, :hint => "Group, organization, or an individual's last name."
+	= f.input :middle_name
+	= f.input :first_name
+	= f.input :title, :hint => "An important honorarium, like 'Sir', or 'Admiral'"
+	= f.input :bio, :hint => "Any biographical information, like 'Politician (1759-1822)', or 'Director of Planning for Somewhere, US'"
+	= f.submit

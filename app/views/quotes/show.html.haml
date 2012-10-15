@@ -1,2 +1,14 @@
-%h1 Quotes#show
-%p Find me in app/views/quotes/show.html.haml
+%h1
+	Quote
+	%small
+		by
+		= link_to @quote.source, @quote.source
+
+%p
+	%blockquote= @quote.content
+%p
+	From:
+	= @quote.context
+%p
+	Filed under:
+	= link_to @quote.category, @quote.category

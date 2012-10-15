@@ -1,7 +1,7 @@
 class SourcesController < ApplicationController
   before_filter :authenticate, :except => [:index, :show]
   def index
-  	@sources = Source.order('official_name ASC')
+  	@sources = Source.order('official_name ASC').page(params[:page])
   end
 
   def show
@@ -15,7 +15,7 @@ class SourcesController < ApplicationController
 
   def create
     if @source = Source.create( params[:source] )
-      redirect_to quotes_path, :notice => 'Source added successfully.'
+      redirect_to sources_path, :notice => 'Source added successfully.'
     else
       render 'new'
     end
@@ -27,7 +27,7 @@ class SourcesController < ApplicationController
 
   def update
     if @source = Source.update_attributes( params[:source] )
-      redirect_to quotes_path, :notice => 'Source updated successfully.'
+      redirect_to sources_path, :notice => 'Source updated successfully.'
     else
       render 'edit'
     end
@@ -36,6 +36,6 @@ class SourcesController < ApplicationController
   def destroy
     @source = Source.find( params[:id] )
     @source.destroy
-    redirect_to quotes_path, :notice => 'Source deleted.'
+    redirect_to sources_path, :notice => 'Source deleted.'
   end
 end

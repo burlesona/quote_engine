@@ -3,7 +3,7 @@ class Source < ActiveRecord::Base
 	attr_accessible :bio, :first_name, :middle_name, :official_name, :title
 
 	# Relationships
-	has_many :quotes
+	has_many :quotes, :dependent => :destroy
 
 	# Validations
 	validates_presence_of :official_name

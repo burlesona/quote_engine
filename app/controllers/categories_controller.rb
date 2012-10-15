@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   before_filter :authenticate, :except => [:index, :show]
 
   def index
-  	@categories = Category.all
+  	@categories = Category.order('name ASC').page(params[:page])
   end
 
   def show
@@ -16,7 +16,7 @@ class CategoriesController < ApplicationController
 
   def create
     if @category = Category.create( params[:category] )
-      redirect_to quotes_path, :notice => 'Category added successfully.'
+      redirect_to categories_path, :notice => 'Category added successfully.'
     else
       render 'new'
     end
@@ -28,7 +28,7 @@ class CategoriesController < ApplicationController
 
   def update
     if @category = Category.update_attributes( params[:category] )
-      redirect_to quotes_path, :notice => 'Category updated successfully.'
+      redirect_to categories_path, :notice => 'Category updated successfully.'
     else
       render 'edit'
     end
@@ -37,6 +37,6 @@ class CategoriesController < ApplicationController
   def destroy
     @category = Category.find( params[:id] )
     @category.destroy
-    redirect_to quotes_path, :notice => 'Category deleted.'
+    redirect_to categories_path, :notice => 'Category deleted.'
   end
 end

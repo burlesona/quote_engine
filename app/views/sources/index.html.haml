@@ -1,15 +1,26 @@
 = title "All Sources"
 
-%h1 Sources
+%h1
+	Sources
+	%small= link_to 'Add new', new_source_path if admin?
+
 %table
 	%thead
 		%tr
 			%th Name
 			%th Bio
 			%th Quotes
+			- if admin?
+				%th
 	%tbody
 		- @sources.each do |source|
 			%tr
 				%td= link_to source.full_name, source
 				%td= source.bio
 				%td= source.quotes.count
+				- if admin?
+					%td
+						= link_to 'Edit', edit_source_path(source), :class => 'small button'
+						= link_to 'Delete', source, :method => :delete, :confirm => 'Are you sure?', :class => 'small danger button'
+
+= paginate @sources

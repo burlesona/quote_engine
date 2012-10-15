@@ -1,13 +1,24 @@
 = title "All Categories"
-%h1 Categories
+
+%h1
+	Categories
+	%small= link_to 'Add new', new_quote_path if admin?
 
 %table
 	%thead
 		%tr
 			%th Name
 			%th Quotes
+			- if admin?
+				%th
 	%tbody
 		- @categories.each do |cat|
 			%tr
 				%td= link_to cat.name, cat
 				%td= cat.quotes.count
+				- if admin?
+					%td
+						= link_to 'Edit', edit_category_path(cat), :class => 'small button'
+						= link_to 'Delete', cat, :method => :delete, :confirm => 'Are you sure?', :class => 'small danger button'
+
+= paginate @categories

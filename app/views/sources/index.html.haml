@@ -10,6 +10,6 @@
 	%tbody
 		- @sources.each do |source|
 			%tr
-				%td= source.full_name
+				%td= link_to source.full_name, source
 				%td= source.bio
-				%td= link_to source.quotes.count, source_quotes_path(source)
+				%td= source.quotes.count

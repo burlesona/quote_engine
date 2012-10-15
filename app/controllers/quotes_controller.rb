@@ -1,6 +1,6 @@
 class QuotesController < ApplicationController
 	def index
-		load_quotes
+		@quotes = Quote.search(params[:search]).page(params[:page]).per(50)
 	end
 
 	def show
@@ -19,18 +19,5 @@ class QuotesController < ApplicationController
 	end
 
 	def destroy
-	end
-
-	def load_quotes
-		case
-		when params[:source_id]
-			@source = Source.find(params[:source_id])
-			@quotes = @source.quotes
-		when params[:category_id]
-			@category = Category.find(params[:category_id])
-			@quotes = @category.quotes
-		else
-			@quotes = Quote.all
-		end
 	end
 end

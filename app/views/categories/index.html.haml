@@ -9,5 +9,5 @@
 	%tbody
 		- @categories.each do |cat|
 			%tr
-				%td= cat.name
-				%td= link_to cat.quotes.count, category_quotes_path(cat)
+				%td= link_to cat.name, cat
+				%td= cat.quotes.count

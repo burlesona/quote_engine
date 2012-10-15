@@ -6,6 +6,8 @@ gem 'jquery-rails'
 gem 'haml-rails'
 gem 'jetpack-rails', :path =>"~/code/jetpack-rails"
 
+gem 'kaminari'
+
 group :development, :test do
 	gem 'minitest-rails'
 	gem 'turn'

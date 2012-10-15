@@ -1,5 +1,13 @@
-= title quotes_title(@source, @category)
-%h1= quotes_title(@source, @category)
+= title "Quotes"
+%h1 All Quotes
+
+.search
+	= form_tag quotes_path, :method => :get do
+		= label_tag :search, 'Keyword Search'
+		= text_field_tag :search, params[:search]
+		= submit_tag 'Search', :name => nil
+		= link_to 'Clear', quotes_path, :class => 'button'
+		%span.results= pluralize(@quotes.total_count, 'results') if params[:search]
 
 %table
 	%thead
@@ -15,3 +23,5 @@
 				%td= quote.context
 				%td= link_to quote.source, quote.source
 				%td= link_to quote.category, quote.source
+
+= paginate @quotes

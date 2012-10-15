@@ -8,6 +8,7 @@ gem 'jetpack-rails', :path =>"~/code/jetpack-rails"
 
 gem 'kaminari'
 gem 'sorted'
+gem 'micro_auth'
 
 group :development, :test do
 	gem 'minitest-rails'

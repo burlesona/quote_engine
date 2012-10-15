@@ -1,0 +1,13 @@
+%footer
+	%p
+		A collaboration between
+		= link_to "Fourth Environment, LLC", "http://www.fourthenvironment.com"
+		and
+		= link_to("Mouzon Design", "http://www.mouzon.com") + "."
+		= "Website ©" + Time.now.year.to_s + "."
+		All quotes are public domain, though we appreciate your linking to us as the source.
+	%p
+		- if admin?
+			= link_to "Admin Logout", logout_path
+		- else
+			= link_to "Admin Login", login_path

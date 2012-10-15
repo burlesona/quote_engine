@@ -11,12 +11,6 @@
 			try{Typekit.load();}catch(e){}
 		= csrf_meta_tags			
 	%body
-		= flash_messages
-		%nav#primary
-			%h1 Menu
-			%ul
-				%li= link_to "Home", root_path
-				%li= link_to "Quotes", quotes_path
-				%li= link_to "Sources", sources_path
-				%li= link_to "Categories", categories_path
+		= render 'layouts/header'
 		%section#main= yield
+		= render 'layouts/footer'

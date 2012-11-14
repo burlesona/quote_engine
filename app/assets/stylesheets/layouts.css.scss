@@ -1,16 +1,56 @@
 // LAYOUTS
-header { @include container; margin-top: $baseline; }
+header { @include container; margin-top: $baseline; margin-bottom: $baseline/2; padding-bottom: $baseline/2; border-bottom: 1px solid $light1; }
 nav#primary {
-	h1 { @include heading(6); float: left; margin-right: $baseline / 2; }
+	h1 { font-size: inherit; font-weight: 700; line-height: inherit; float: left; margin-right: $baseline / 2; color: $light2; }
 	ul li { float: left; margin-right: $baseline / 2; }
 }
 section#main { @include container; }
 footer { @include container; margin-top: $baseline; margin-bottom: $baseline; }
 
+// HOME
+div.home {
+	text-align: center;
+	h1 { font-size: 48px; line-height: 48px; font-weight: 300; font-style: italic; color: $color1; margin: 92px 0 24px; }
+	p { font-size: 24px; line-height: 28px; margin-bottom: 28px; }
+	.start { display: inline-block; text-align: left; margin: 48px 0 24px;
+		label { font-size: 24px; line-height: 24px; display: inline-block; vertical-align: middle; }
+		input[type=text] { @include standard_input; width: 200px; }
+		input[type=submit] { @include inline_submit; }
+	}
+
+}
+
+
+
 // SEARCH
 div.search {
-	input[type=text] { @include standard_input; margin-right: $baseline / 3;}
+	div.box { @include grid(1,4); margin-left: 0; }
+	div.buttons { @include grid(1,4); margin-top: $baseline; }
+
+	label { display: block; }
+	input[type=text] { @include standard_input; width: 100%; }
 	input[type=submit] { @include inline_submit; }
 }
 a.sorted.asc:after { content: " \25b2"; font-size: 80%; }
 a.sorted.desc:after { content: " \25bc"; font-size: 80%; }
+
+// QUOTES
+div.quotes {
+	div.quote {
+		@include container; margin-bottom: $baseline/2; padding-bottom: $baseline/2; border-bottom: 1px solid $light1;
+		div.content { @include grid(2,5); }
+		div.context {
+			@include grid(1,5);
+			@include respond-to(mobile) {
+				margin-top: $baseline;
+			}
+		}
+		div.source { @include grid(1,5); }
+		div.category { @include grid(1,5); }
+		div.controls { clear: both; text-align: right; }
+		div:after { content: "\00a0"; }
+	}
+	div.quote.heading {
+		font-weight: 700;		
+	}
+}

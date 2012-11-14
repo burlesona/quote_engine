@@ -1,0 +1,9 @@
+.search
+	= form_tag quotes_path, :method => :get do
+		.box
+			= label_tag :search, 'Keyword Search'
+			= text_field_tag :search, params[:search]
+		.buttons
+			= submit_tag 'Search', :name => nil
+			= link_to 'Clear', quotes_path, :class => 'button'
+		%span.results= pluralize(@quotes.total_count, 'results') if params[:search]

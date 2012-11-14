@@ -4,33 +4,25 @@
 	All Quotes
 	%small= link_to 'Add New', new_quote_path if admin?
 
-.search
-	= form_tag quotes_path, :method => :get do
-		= label_tag :search, 'Keyword Search'
-		= text_field_tag :search, params[:search]
-		= submit_tag 'Search', :name => nil
-		= link_to 'Clear', quotes_path, :class => 'button'
-		%span.results= pluralize(@quotes.total_count, 'results') if params[:search]
+= render 'quotes/search'
 
-%table
-	%thead
-		%tr
-			%th Quote
-			%th Context
-			%th= link_to_sorted "By", :official_name
-			%th= link_to_sorted "Category", :name
+.quotes
+	.quote.heading
+		.content Quote
+		.context Context
+		.source= link_to_sorted "By", :official_name
+		.category= link_to_sorted "Category", :name
+		- if admin?
+			.controls &nbsp;
+	- @quotes.each do |quote|
+		.quote
+			.content= quote.content
+			.context= quote.context
+			.source= link_to quote.source, quote.source
+			.category= link_to quote.category, quote.category
 			- if admin?
-				%th
-	%tbody
-		- @quotes.each do |quote|
-			%tr
-				%td= quote.content
-				%td= quote.context
-				%td= link_to quote.source, quote.source
-				%td= link_to quote.category, quote.category
-				- if admin?
-					%td
-						= link_to 'Edit', edit_quote_path(quote), :class => 'small button'
-						= link_to 'Delete', quote, :method => :delete, :confirm => 'Are you sure?', :class => 'small danger button'
+				.controls
+					= link_to 'Edit', edit_quote_path(quote), :class => 'small button'
+					= link_to 'Delete', quote, :method => :delete, :confirm => 'Are you sure?', :class => 'small danger button'
 
 = paginate @quotes

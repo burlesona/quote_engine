@@ -3,7 +3,7 @@ gem 'rails', '3.2.8'
 
 gem 'jquery-rails'
 gem 'haml-rails'
-gem 'jetpack-rails'
+gem 'jetpack-rails', '~>0.6.4'
 
 gem 'kaminari'
 gem 'sorted'

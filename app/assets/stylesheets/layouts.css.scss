@@ -13,7 +13,9 @@ div.home {
 	h1 { font-size: 48px; line-height: 48px; font-weight: 300; font-style: italic; color: $color1; margin: 92px 0 24px; }
 	p { font-size: 24px; line-height: 28px; margin-bottom: 28px; }
 	.start { display: inline-block; text-align: left; margin: 48px 0 24px;
-		label { font-size: 24px; line-height: 24px; display: inline-block; vertical-align: middle; }
+		label { font-size: 24px; line-height: 24px; display: inline-block; vertical-align: middle;
+			@include respond-to(mobile) { width: 100%; text-align: center; margin-bottom: 6px; }
+		}
 		input[type=text] { @include standard_input; width: 200px; }
 		input[type=submit] { @include inline_submit; }
 	}
